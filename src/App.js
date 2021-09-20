@@ -1,11 +1,15 @@
-import './App.css';
+import NavBar from "./components/NavBar"
+import ItemListContainer from "./components/container/ItemListContainer"
 
-function App() {
-    return (
-        <div>
-            <h1> Bienvenido al Store de Sneaker House </h1>
-        </div>
-    );
+const App = () => {
+
+    return(
+        <>
+            <NavBar titulo="Sneaker Store"/>
+            <ItemListContainer greeting="Bienvenido a Sneaker Store."/>
+        </>
+    )
+    
 }
-
-export default App;
+// Exporto la funcion
+export default App
