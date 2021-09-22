@@ -1,31 +1,22 @@
-import CartWidget from "./CartWidget"
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container'
+import Links from "./Links"
+
+// Destructuring
+const {Brand, Collapse, Toggle} = Navbar
 
 const NavBar = (props) => {
 
-    return(
-        <nav class="navbar navbar-expand-sm navbar-light bg-light">
-            <div class="container">
-
-                {/* Titulo */}
-                <div class="navbar-brand mb-0 h1">
-                    {props.titulo}
-                </div>
-
-                {/* Menu */}
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><CartWidget/></a>
-                    </li>
-                </ul>
-
-            </div>   
-        </nav>
+    return (
+        <Navbar as="header" expand="sm" className="color-nav" variant="dark">
+            <Container>
+                <Brand className="fontmarca">{props.titulo}</Brand>
+                <Toggle/>
+                <Collapse>
+                    <Links/>
+                </Collapse>
+            </Container>
+        </Navbar>
     )
     
 }

@@ -1,12 +1,13 @@
+// Importo los componentes
 import NavBar from "./components/NavBar"
-import ItemListContainer from "./components/container/ItemListContainer"
+import Main from "./components/Main"
 
 const App = () => {
 
     return(
         <>
-            <NavBar titulo="Sneaker Store"/>
-            <ItemListContainer greeting="Bienvenido a Sneaker Store."/>
+            <NavBar titulo="SNEAKER STORE"/>
+            <Main/>
         </>
     )
     
