@@ -12,5 +12,5 @@ const App = () => {
     )
     
 }
-// Exporto la funcion
+
 export default App

@@ -1,15 +1,15 @@
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card"
+import Button from "react-bootstrap/Button"
 
 const {Body, Img, Footer, Text, Title} = Card
 
-const Tarjeta = () => {
+const Item = (props) => {
 
     return (
         <Card>
             <Img src = "http://placehold.it/300x200" />
             <Body>
-                <Title>Producto</Title>
+                <Title>{props.titulo}</Title>
                 <Text>
                     sarasa
                 </Text>
@@ -22,4 +22,4 @@ const Tarjeta = () => {
     
 }
 
-export default Tarjeta
+export default Item
