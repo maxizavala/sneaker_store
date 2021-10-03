@@ -7,12 +7,10 @@ const Item = (props) => {
 
     return (
         <Card>
-            <Img src = "http://placehold.it/300x200" />
+            <Img src = {props.img} />
             <Body>
                 <Title>{props.titulo}</Title>
-                <Text>
-                    sarasa
-                </Text>
+                <Text>{props.precio}</Text>
             </Body>
             <Footer>
                 <Button variant="info" size="sm">Ver Detalle</Button>

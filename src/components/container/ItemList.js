@@ -4,10 +4,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Item from "./Item";
 
-const articulos = ["zapatilla1", "zapatilla2", "zapatilla3"]
+const articulos = [
+    {id:1, nombre: "Nike M2K Tekno", img: "https://www.moovbydexter.com.ar/dw/image/v2/BDTF_PRD/on/demandware.static/-/Sites-dabra-catalog/default/dweb3a9dc7/products/NI_AO3108-401/NI_AO3108-401-1.JPG?sw=400&sh=400", precio: "$7.800,00"}, 
+    {id:2, nombre: "Nike Air Max 200", img: "https://www.moovbydexter.com.ar/dw/image/v2/BDTF_PRD/on/demandware.static/-/Sites-dabra-catalog/default/dwaa5211b9/products/NI_AT6175-100/NI_AT6175-100-1.JPG?sw=400&sh=400", precio: "$8.100,00"}, 
+    {id:3, nombre: "Nike Air Max 270", img: "https://www.moovbydexter.com.ar/dw/image/v2/BDTF_PRD/on/demandware.static/-/Sites-dabra-catalog/default/dw3b12c7eb/products/NI_AH6789-107/NI_AH6789-107-1.JPG?sw=400&sh=400", precio: "$7.900,00"}
+]
 
 function crearPromesa() {
-    return new Promise((resolve, reject) => {  
+    return new Promise((resolve) => {  
         setTimeout(
             function(){                          
                 resolve(articulos);  
@@ -16,9 +20,9 @@ function crearPromesa() {
 }
 
 
-const ItemList = (props) => {
+const ItemList = () => {
     const [articulos, setArticulos] = React.useState(null);
-    const [estado, setEstado] = useState('Loading...');
+    const [estado, setEstado] = useState('Cargando');
 
     useEffect(() => {        
         let requestArticulos = crearPromesa();
@@ -26,7 +30,7 @@ const ItemList = (props) => {
         requestArticulos
         .then( function(items_promise){
             setArticulos(items_promise);     
-            setEstado('Listo!');           
+            setEstado('Listo');           
         })      
     }, []);
 
@@ -34,7 +38,7 @@ const ItemList = (props) => {
         <Container>
             <Row>
                 {(articulos !== null) && 
-                articulos.map(prod => <Col sm={6} md={4} className="pt-3"> <Item titulo={prod}/> </Col>)}
+                articulos.map(art => <Col sm={6} md={4} className="pt-3" key={art.id}> <Item titulo={art.nombre} img={art.img} precio={art.precio}/> </Col>)}
             </Row>
         </Container>
     );
