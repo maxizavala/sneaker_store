@@ -44,12 +44,10 @@ const ItemDetailContainer = () => {
 
     return(
         <Container>
-            <Row>
-                <Col/>
-                    <Col sm={8} className="pt-3" key={articulo.id}> 
-                        <ItemDetail titulo={articulo.nombre} img={articulo.img} precio={articulo.precio} descripcion={articulo.descripcion}/> 
-                    </Col>
-                <Col/>
+            <Row className="row justify-content-center">
+                <Col className="pt-3" key={articulo.id}> 
+                    <ItemDetail titulo={articulo.nombre} img={articulo.img} precio={articulo.precio} descripcion={articulo.descripcion}/> 
+                </Col>
             </Row>
         </Container> 
     )
