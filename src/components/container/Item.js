@@ -1,5 +1,5 @@
 import Card from "react-bootstrap/Card"
-import Button from "react-bootstrap/Button"
+import { Link } from "react-router-dom"
 
 const {Body, Img, Footer, Text, Title} = Card
 
@@ -13,7 +13,7 @@ const Item = (props) => {
                 <Text>{props.precio}</Text>
             </Body>
             <Footer>
-                <Button variant="info" size="sm">Ver Detalle</Button>
+                <Link className="btn btn-info btn-sm" to={"/producto/" + props.id}> Ver Detalle </Link>
             </Footer>
         </Card>
     );

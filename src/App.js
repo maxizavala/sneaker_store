@@ -1,13 +1,31 @@
 import NavBar from "./components/NavBar"
-import Main from "./components/Main"
-import { BrowserRouter } from "react-router-dom"
+import { Container } from "react-bootstrap"
+import { BrowserRouter, Route, Switch } from "react-router-dom"
+
+import ItemListContainer from "./components/container/ItemListContainer"
+import ItemDetailContainer from "./components/container/ItemDetailContainer"
+import Contacto from "./components/container/Contacto"
+import Shop from "./components/container/Shop"
+
 
 const App = () => {
 
     return(
         <BrowserRouter>
             <NavBar titulo="SNEAKER STORE"/>
-            <Main/>
+            <Container>
+                <Switch>
+
+                    <Route exact path="/" component={ ItemListContainer }/>
+
+                    <Route exact path="/contacto" component= { Contacto }/>
+                    
+                    <Route exact path="/shop" component= { Shop }/>
+
+                    <Route exact path="/producto/:id" component= { ItemDetailContainer }/>
+
+                </Switch>
+            </Container>
         </BrowserRouter>
     )
     

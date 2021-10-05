@@ -1,19 +1,26 @@
 import Nav from 'react-bootstrap/Nav'
 import CartWidget from "./CartWidget"
+import { Link as NavLink } from "react-router-dom"
 
-const {Link, Item} = Nav
+const {Item, Link} = Nav
 
 const Links = () => {
     return (
         <Nav>
             <Item>
-                <Link href="#">HOME</Link>
+                <Link>
+                    <NavLink to="/" className="link-nav">HOME</NavLink>
+                </Link>
             </Item>
             <Item>
-                <Link href="#">CONTACTO</Link>
+                <Link>
+                    <NavLink to="/contacto" className="link-nav">CONTACTO</NavLink>
+                </Link>
             </Item>
             <Item>
-                <Link href="#"><CartWidget/></Link>
+                <Link>
+                    <NavLink to="/shop" className="link-nav"><CartWidget/></NavLink>
+                </Link>
             </Item>
         </Nav>
     );

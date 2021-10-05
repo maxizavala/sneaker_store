@@ -8,3 +8,12 @@
     font-style: italic;
     letter-spacing: 1px;
 }
+
+.link-nav {
+    color: white;
+}
+
+.link-nav:hover {
+    text-decoration: none;
+    color: gray;
+}
