@@ -2,7 +2,7 @@ import ItemDetail from './ItemDetail';
 import Container from 'react-bootstrap/Container'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
+import React, {useState,useEffect} from 'react';
 import { useParams } from 'react-router-dom'
 
 const articulos = [
@@ -26,6 +26,15 @@ const articulos = [
     }
 ]
 
+
+function crearPromesa() {
+    return new Promise((resolve) => {  
+        setTimeout(
+            function(){                          
+                resolve(articulos);  
+        }, 2000);      
+    });     
+}
 
 
 const ItemDetailContainer = () => {
