@@ -1,5 +1,5 @@
 import ItemList from './ItemList';
-import React, {useState,useEffect} from 'react';
+import {useState, useEffect } from 'react';
 
 const articulos = [
     {id: 1, nombre: "Nike M2K Tekno", img: "https://www.moovbydexter.com.ar/dw/image/v2/BDTF_PRD/on/demandware.static/-/Sites-dabra-catalog/default/dweb3a9dc7/products/NI_AO3108-401/NI_AO3108-401-1.JPG?sw=400&sh=400", precio: "$7.800,00"}, 
@@ -18,16 +18,14 @@ function crearPromesa() {
 
 const ItemListContainer = () => {
     
-    const [articulos, setArticulos] = React.useState(null);
-    const [estado, setEstado] = useState('Cargando');
+    const [articulos, setArticulos] = useState(null);
 
     useEffect(() => {        
         let requestArticulos = crearPromesa();
 
         requestArticulos
         .then( function(items_promise){
-            setArticulos(items_promise);     
-            setEstado('Listo');           
+            setArticulos(items_promise);               
         })      
     }, []);
 

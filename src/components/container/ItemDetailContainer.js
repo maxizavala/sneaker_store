@@ -2,7 +2,7 @@ import ItemDetail from './ItemDetail';
 import Container from 'react-bootstrap/Container'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import React, {useState,useEffect} from 'react';
+import { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom'
 
 const articulos = [
@@ -27,31 +27,36 @@ const articulos = [
 ]
 
 
-function crearPromesa() {
-    return new Promise((resolve) => {  
-        setTimeout(
-            function(){                          
-                resolve(articulos);  
-        }, 2000);      
-    });     
-}
-
-
 const ItemDetailContainer = () => {
 
-    let { id } = useParams()
-    let articulo = articulos[id-1]
+    let { id } = useParams();
+    const articulo = articulos[id-1]
 
+    const [art, setProduct] = useState({id:-1, nombre: "", img: "", precio:"", descripcion: ""});
+
+    useEffect(()=>{
+
+        const getProduct = new Promise((res)=>{
+            setTimeout( () => res(articulo), 2000)
+        })
+
+        getProduct.then( (art) => {
+            setProduct(art)
+        })
+
+    },[])
+
+    // Return ---------------------------------------
     return(
         <Container>
             <Row className="row justify-content-center">
-                <Col className="pt-3" key={articulo.id}> 
-                    <ItemDetail titulo={articulo.nombre} img={articulo.img} precio={articulo.precio} descripcion={articulo.descripcion}/> 
+                <Col className="pt-3" key={art.id}> 
+                    <ItemDetail titulo={art.nombre} img={art.img} precio={art.precio} descripcion={art.descripcion}/> 
                 </Col>
             </Row>
         </Container> 
     )
-    
+
 }
 
 export default ItemDetailContainer
