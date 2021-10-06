@@ -5,8 +5,14 @@ import Item from "./Item";
 
 const ItemList = (props) => {
 
-    const articulos = props.productos
+    let articulos = props.productos
+    const categoria = props.categoria
 
+    if (!!categoria) {
+        let filtrados = articulos.filter(art => art.categoria === categoria);
+        articulos = filtrados
+    }
+    
     return (
         <Container>
             <Row>
