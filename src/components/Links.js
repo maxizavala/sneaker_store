@@ -17,12 +17,12 @@ const Links = () => {
             <NavDropdown title="CATEGORIAS" id="nav-dropdown" className="link-nav">
                 <Item>
                     <Link>
-                        <NavLink to="/hombre" className="link-nav">HOMBRE</NavLink>
+                        <NavLink to="/categorias/hombre" className="link-nav">HOMBRE</NavLink>
                     </Link>
                 </Item>
                 <Item>
                     <Link>
-                        <NavLink to="/mujer" className="link-nav">MUJER</NavLink>
+                        <NavLink to="/categorias/mujer" className="link-nav">MUJER</NavLink>
                     </Link>
                 </Item>
             </NavDropdown>

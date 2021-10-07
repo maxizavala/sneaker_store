@@ -24,9 +24,7 @@ const App = () => {
 
                     <Route exact path="/producto/:id" component= { ItemDetailContainer }/>
 
-                    <Route exact path="/:categoria" component= { ItemListContainer }/>
-
-                    <Route exact path="/:categoria" component= { ItemListContainer }/>
+                    <Route exact path="/categorias/:categoria" component= { ItemListContainer }/>
 
                 </Switch>
             </Container>
