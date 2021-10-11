@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
     let { id } = useParams();
     const articulo = productos[id-1]
 
-    const [art, setProduct] = useState({id:-1, nombre: "", img: "", precio:"", descripcion: ""});
+    const [art, setArt] = useState({id:-1, nombre: "", img: "", precio:"", descripcion: ""});
 
     useEffect(()=>{
 
@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
         })
 
         getProduct.then( (art) => {
-            setProduct(art)
+            setArt(art)
         })
 
     },[])

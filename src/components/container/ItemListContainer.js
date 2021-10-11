@@ -6,22 +6,26 @@ import { productos } from '../productos';
 
 const ItemListContainer = () => {
 
-    let [art, setProduct] = useState(null);
+    let [art, setArt] = useState(null);
 
     let { categoria } = useParams();
 
-    if (categoria) {
-        art = productos.filter(art => art.categoria === categoria);
-    }
-
     useEffect(()=>{
         const getProducts = new Promise((res)=>{
-            setTimeout( () => res(productos), 2000)
+
+            let lista
+            if (categoria) {
+                lista = productos.filter(art => art.categoria === categoria);
+            } else {
+                lista = productos
+            }
+
+            setTimeout( () => res(lista), 2000)
         })
         getProducts.then( (art) => {
-            setProduct(art)
+            setArt(art)
         })
-    },[])
+    },[categoria])
 
     return(
         <div className="container">
