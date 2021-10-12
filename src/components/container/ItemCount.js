@@ -6,16 +6,20 @@ import { useState } from "react"
 
 const {Footer} = Card
 
-const ItemCount = (props) => {
+const ItemCount = ({stock, initial, onAdd}) => {
 
-    const [cantidad, setCantidad] = useState(props.initial)
+    const [cantidad, setCantidad] = useState(initial)
 
     function setCant(operacion) {
-        if (operacion === "suma" && cantidad < props.stock) {
+        if (operacion === "suma" && cantidad < stock) {
             setCantidad(parseInt(cantidad) + 1)
-        } else if (operacion === "resta" && cantidad > props.initial) {
+        } else if (operacion === "resta" && cantidad > initial) {
             setCantidad(parseInt(cantidad) - 1)
         }
+    }
+
+    const agregar = () => {
+        onAdd(cantidad)
     }
 
     return (
@@ -36,7 +40,9 @@ const ItemCount = (props) => {
             </Footer>
             <Footer>
                 <Row>
-                    <Col className="text-center"> <Button className="btn btn-info"> Agregar al Carrito </Button> </Col>
+                    <Col className="text-center"> 
+                        <Button className="btn btn-info" onClick={ agregar }> Agregar al Carrito </Button> 
+                    </Col>
                 </Row>
             </Footer>
         </>
