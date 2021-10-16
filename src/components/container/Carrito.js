@@ -3,12 +3,12 @@ import Card from "react-bootstrap/Card"
 import Container from 'react-bootstrap/Container'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button"
+import TrashWidget from "../TrashWidget";
 
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext"
 
-const {Body, Img, Text, Title, Footer} = Card
+const {Body, Img, Text, Title} = Card
 
 
 const Carrito = () => {
@@ -22,16 +22,23 @@ const Carrito = () => {
                 { cart.map((item) => {
                     return (
                         <Row className="row justify-content-center" key={item.id}>
-                            <Col sm={4} className="pt-3">
+                            <Col sm={10} className="pt-3">
                                 <Card>
-                                    <Img src = {item.img} />
-                                    <Body>
-                                        <Title>{item.titulo}</Title>
-                                        <Text>{item.precio}</Text>
-                                    </Body>
-                                    <Footer>
-                                        <Button className="btn btn-info btn-sm" onClick={ () => removeItem(item.id) }> Eliminar </Button> 
-                                    </Footer>
+                                    <Row>
+                                        <Col sm={3}>
+                                            <Img src = {item.img} />
+                                        </Col>
+                                        <Col className="d-flex align-items-center">
+                                            <Body sm={3} >
+                                                <Title>{item.titulo}</Title>
+                                                <Text> Precio: {item.precio} </Text>
+                                                <Text> Cantidad: {item.cantidad} </Text>
+                                            </Body>
+                                        </Col>
+                                        <Col sm={2} className="text-right">
+                                            <div style={{cursor:'pointer'}} onClick={ () => removeItem(item.id) }> <TrashWidget/> </div>
+                                        </Col>
+                                    </Row>
                                 </Card>
                             </Col>
                         </Row>
