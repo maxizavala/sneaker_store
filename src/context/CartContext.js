@@ -6,15 +6,24 @@ export const CartProvider = (props) => { // Configuracion de rutas
 
 	const [cart, setCart] = useState([])
 
+/*
+	const addItem = (itemCount) => {
 
-	const addItem = (id , cant) => {
-        if (isInCart(id) !== -1) { // Existe el item en el carrito
-            setCart(cart[id].cantidad + cant)
-        } else { // No existe el item en el carrito
-            setCart(cart.push({id: id, cantidad: cant}))
+        const item = {id: props.id, img: props.img, titulo: props.titulo, precio: props.precio, cantidad: itemCount}
+
+        let copiaCart = [...cart]
+        let posicion = isInCart(props.id)
+
+        if (posicion !== null) { // Existe el producto en carrito
+            copiaCart[posicion].cantidad = Number(copiaCart[posicion].cantidad) + Number(itemCount)
+        } else { // No existe el producto en carrito
+            copiaCart.push(item)
         }
-    }
 
+        setCart(copiaCart)
+        
+    }
+*/
 
     const removeItem = (idItem) => { 
 
@@ -42,7 +51,7 @@ export const CartProvider = (props) => { // Configuracion de rutas
 
 	return (
 		<>
-		    <CartContext.Provider value={[cart, setCart, removeItem, clear, addItem]}> 
+		    <CartContext.Provider value={[cart, setCart, removeItem, clear]}> 
 				{props.children}
 			</CartContext.Provider>
 		</>

@@ -22,14 +22,14 @@ const Carrito = () => {
                 { cart.map((item) => {
                     return (
                         <Row className="row justify-content-center" key={item.id}>
-                            <Col sm={10} className="pt-3">
+                            <Col sm={8} className="pt-3">
                                 <Card>
                                     <Row>
-                                        <Col sm={3}>
+                                        <Col sm={4}>
                                             <Img src = {item.img} />
                                         </Col>
                                         <Col className="d-flex align-items-center">
-                                            <Body sm={3} >
+                                            <Body sm={2} >
                                                 <Title>{item.titulo}</Title>
                                                 <Text> Precio: {item.precio} </Text>
                                                 <Text> Cantidad: {item.cantidad} </Text>

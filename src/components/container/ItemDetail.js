@@ -17,15 +17,40 @@ const ItemDetail = (props) => {
     const [cart, setCart] = useContext(CartContext)
 
 
-    const onAdd = (itemCount) => {
-        setCantidad(itemCount)
+    const isInCart = (idItem) => {
+        let posicion = null
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].id === idItem) {
+                posicion = i
+            }
+        }
+        return posicion
+    }
+
+
+    const addItem = (itemCount) => {
 
         const item = {id: props.id, img: props.img, titulo: props.titulo, precio: props.precio, cantidad: itemCount}
 
-        const cartTemp = cart
-        cartTemp.push(item)
+        let copiaCart = [...cart]
+        let posicion = isInCart(props.id)
 
-        setCart(cartTemp)
+        if (posicion !== null) { // Existe el producto en carrito
+            copiaCart[posicion].cantidad = Number(copiaCart[posicion].cantidad) + Number(itemCount)
+        } else { // No existe el producto en carrito
+            copiaCart.push(item)
+        }
+
+        setCart(copiaCart)
+        
+    }
+
+
+    const onAdd = (itemCount) => {
+
+        setCantidad(itemCount)
+        addItem(itemCount)
+
     } 
 
 
