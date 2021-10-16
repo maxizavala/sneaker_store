@@ -12,7 +12,7 @@ const {Body, Img, Text, Title } = Card
 const ItemDetail = (props) => {
 
     const [cantidad, setCantidad] = useState(null)
-    
+
 
     const [cart, setCart] = useContext(CartContext)
 
@@ -26,7 +26,6 @@ const ItemDetail = (props) => {
         cartTemp.push(item)
 
         setCart(cartTemp)
-        console.log(cart)
     } 
 
 

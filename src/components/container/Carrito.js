@@ -11,14 +11,9 @@ import { CartContext } from "../../context/CartContext"
 const {Body, Img, Text, Title, Footer} = Card
 
 
-function eliminar() {
-
-}
-
-
 const Carrito = () => {
 
-    const [cart, setCart] = useContext(CartContext)
+    const [cart, setCart, removeItem] = useContext(CartContext)
 
     return (
         <div>
@@ -35,7 +30,7 @@ const Carrito = () => {
                                         <Text>{item.precio}</Text>
                                     </Body>
                                     <Footer>
-                                        <Button className="btn btn-info btn-sm" onClick={ eliminar }> Eliminar </Button> 
+                                        <Button className="btn btn-info btn-sm" onClick={ () => removeItem(item.id) }> Eliminar </Button> 
                                     </Footer>
                                 </Card>
                             </Col>

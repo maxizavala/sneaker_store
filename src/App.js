@@ -7,7 +7,7 @@ import ItemDetailContainer from "./components/container/ItemDetailContainer"
 import Contacto from "./components/container/Contacto"
 import Carrito from "./components/container/Carrito"
 
-import CartProvider from "./context/CartContext"
+import { CartProvider } from "./context/CartContext"
 
 
 const App = () => {

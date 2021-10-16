@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react"
 
 export const CartContext = createContext() // Contexto que utilizamos en las paginas
 
-const CartProvider = (props) => { // Configuracion de rutas
+export const CartProvider = (props) => { // Configuracion de rutas
 
 	const [cart, setCart] = useState([])
 
@@ -16,9 +16,21 @@ const CartProvider = (props) => { // Configuracion de rutas
     }
 
 
-    const removeItem = (id) => {
-        if (isInCart(id) !== -1) {
-            setCart(cart.splice(id, 1))
+    const removeItem = (idItem) => { 
+
+        let copiaCart = [...cart]
+        let posicion = isInCart(idItem)
+
+        copiaCart.splice(posicion, 1)
+        setCart(copiaCart)
+    }
+
+
+    const isInCart = (idItem) => {
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].id === idItem) {
+                return i
+            }
         }
     }
 
@@ -26,26 +38,14 @@ const CartProvider = (props) => { // Configuracion de rutas
     const clear = () => {
         setCart([]);
     }
-
-    const isInCart = (id) => {
-        let posicion = -1
-        for (let i=0; i < cart.length; i++) { 
-            if (id === cart[i].item.id) { 
-                posicion = i     
-            }
-        }
-        return posicion
-    }
 	
 
 	return (
 		<>
-		    <CartContext.Provider value={[cart, setCart]}> 
+		    <CartContext.Provider value={[cart, setCart, removeItem, clear, addItem]}> 
 				{props.children}
 			</CartContext.Provider>
 		</>
 	)
 
 }
-
-export default CartProvider
