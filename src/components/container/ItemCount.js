@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import { useState } from "react"
 
+
 const {Footer} = Card
 
 const ItemCount = ({stock, initial, onAdd}) => {
@@ -18,9 +19,11 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
     }
 
+    
     const agregar = () => {
         onAdd(cantidad)
     }
+    
 
     return (
         

@@ -1,19 +1,34 @@
 import Card from "react-bootstrap/Card"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import ItemCount from "./ItemCount"
 import TerminarCompra from "./TerminarCompra"
+
+import { CartContext } from "../../context/CartContext"
 
 const {Body, Img, Text, Title } = Card
 
 const ItemDetail = (props) => {
 
     const [cantidad, setCantidad] = useState(null)
+    
 
-    const onAdd = itemCount => {
+    const [cart, setCart] = useContext(CartContext)
+
+
+    const onAdd = (itemCount) => {
         setCantidad(itemCount)
+
+        const item = {id: props.id, img: props.img, titulo: props.titulo, precio: props.precio, cantidad: itemCount}
+
+        const cartTemp = cart
+        cartTemp.push(item)
+
+        setCart(cartTemp)
+        console.log(cart)
     } 
+
 
     return (
         <>

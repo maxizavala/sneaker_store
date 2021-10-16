@@ -11,7 +11,7 @@ const TerminarCompra = (props) => {
         <Footer>
             <Row>
                 <Col className="text-center"> 
-                    <Link className="btn btn-info" to={"/shop"}> Terminar mi compra </Link> 
+                    <Link className="btn btn-info" to={"/cart"}> Terminar mi compra </Link> 
                 </Col>
             </Row>
         </Footer>

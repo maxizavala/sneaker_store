@@ -7,7 +7,7 @@ import img6 from './img/06.jpeg'
 import img7 from './img/07.jpeg'
 import img8 from './img/08.jpeg'
 
-let texto = `Inspiradas en una versión retro de Nike, las Zapatillas Nike M2K Tekno más deportivas que nunca, 
+let texto = `Inspiradas en una versión retro de Nike, estas Zapatillas Nike, más deportivas que nunca 
 y con un atractivo de los 90, con mezcla de materiales duraderos con un toque moderno que le da a tu 
 look un aspecto diferencial; su suela ancha te da pasos amortiguados y mejor reacción en cualquier superficie.`
 
@@ -38,7 +38,7 @@ export const productos = [
     },
     {
         id: 4, 
-        categoria: "hombre", 
+        categoria: "mujer", 
         nombre: "Nike Air Vapormax Flyknit 3", 
         precio: "$22.800,00", 
         img: img4, 
@@ -71,7 +71,7 @@ export const productos = [
     {
         id: 8, 
         categoria: "hombre", 
-        nombre: "Nike Air Force 1 '07 Lv8", 
+        nombre: "Nike Air Force", 
         precio: "$18.900,00", 
         img: img8, 
         descripcion: texto

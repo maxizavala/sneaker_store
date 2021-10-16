@@ -33,7 +33,7 @@ const Links = () => {
             </Item>
             <Item>
                 <Link>
-                    <NavLink to="/shop" className="link-nav"><CartWidget/></NavLink>
+                    <NavLink to="/cart" className="link-nav"><CartWidget/></NavLink>
                 </Link>
             </Item>
         </Nav>
