@@ -11,46 +11,19 @@ const {Body, Img, Text, Title } = Card
 
 const ItemDetail = (props) => {
 
+
     const [cantidad, setCantidad] = useState(null)
 
 
-    const [cart, setCart] = useContext(CartContext)
+    const [cart, setCart, addItem] = useContext(CartContext)
 
 
-    const isInCart = (idItem) => {
-        let posicion = null
-        for (let i = 0; i < cart.length; i++) {
-            if (cart[i].id === idItem) {
-                posicion = i
-            }
-        }
-        return posicion
-    }
+    const onAdd = (cantidad) => {
 
-
-    const addItem = (itemCount) => {
-
-        const item = {id: props.id, img: props.img, titulo: props.titulo, precio: props.precio, cantidad: itemCount}
-
-        let copiaCart = [...cart]
-        let posicion = isInCart(props.id)
-
-        if (posicion !== null) { // Existe el producto en carrito
-            copiaCart[posicion].cantidad = Number(copiaCart[posicion].cantidad) + Number(itemCount)
-        } else { // No existe el producto en carrito
-            copiaCart.push(item)
-        }
-
-        setCart(copiaCart)
+        console.log("itemDetail")
+        setCantidad(cantidad)
+        addItem({id: props.id, img: props.img, titulo: props.titulo, precio: props.precio, cantidad: cantidad})
         
-    }
-
-
-    const onAdd = (itemCount) => {
-
-        setCantidad(itemCount)
-        addItem(itemCount)
-
     } 
 
 

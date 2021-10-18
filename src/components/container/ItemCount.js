@@ -21,7 +21,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     
     const agregar = () => {
+
+        console.log("itemCount")
         onAdd(cantidad)
+
     }
     
 
