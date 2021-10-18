@@ -7,9 +7,10 @@ import { useState } from "react"
 
 const {Footer} = Card
 
-const ItemCount = ({stock, initial, onAdd}) => {
+const ItemCount = ({stock, initial, onAdd, time}) => {
 
     const [cantidad, setCantidad] = useState(initial)
+
 
     function setCant(operacion) {
         if (operacion === "suma" && cantidad < stock) {
@@ -21,10 +22,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     
     const agregar = () => {
-
-        console.log("itemCount")
         onAdd(cantidad)
-
     }
     
 
@@ -37,7 +35,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
                         <Button className="btn btn-sm" onClick={()=> setCant("resta")}> - </Button>
                     </Col>
                     <Col className="text-center">
-                        {cantidad}  
+                        {cantidad}
                     </Col>
                     <Col className="text-center">
                         <Button className="btn btn-sm" onClick={()=> setCant("suma")}> + </Button>
@@ -47,7 +45,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
             <Footer>
                 <Row>
                     <Col className="text-center"> 
-                        <Button className="btn btn-info" onClick={ agregar }> Agregar al Carrito </Button> 
+                        { time !== "true" ? <Button className="btn btn-info" disabled> Agregar al Carrito </Button>  : <Button className="btn btn-info" onClick={ agregar }> Agregar al Carrito </Button> }
                     </Col>
                 </Row>
             </Footer>

@@ -6,10 +6,8 @@ export const CartProvider = (props) => { // Configuracion de rutas
 
 	const [cart, setCart] = useState([])
 
-    
-	const addItem = (item) => {
 
-        console.log("CartContext")
+	const addItem = (item) => {
 
         let copiaCart = [...cart]
         let posicion = isInCart(item.id)
@@ -36,11 +34,15 @@ export const CartProvider = (props) => { // Configuracion de rutas
 
 
     const isInCart = (idItem) => {
-        for (let i = 0; i < cart.length; i++) {
+        let posicion = null
+        let i = 0
+        while (posicion == null && i < cart.length) {
             if (cart[i].id === idItem) {
-                return i
+                posicion = i
             }
+            i++
         }
+        return posicion
     }
 
 

@@ -15,12 +15,11 @@ const ItemDetail = (props) => {
     const [cantidad, setCantidad] = useState(null)
 
 
-    const [cart, setCart, addItem] = useContext(CartContext)
+    const [cart, setCart, removeItem, clear, addItem, isInCart] = useContext(CartContext)
 
 
     const onAdd = (cantidad) => {
 
-        console.log("itemDetail")
         setCantidad(cantidad)
         addItem({id: props.id, img: props.img, titulo: props.titulo, precio: props.precio, cantidad: cantidad})
         
@@ -41,7 +40,7 @@ const ItemDetail = (props) => {
                             <Title> {props.titulo} ~ {props.precio} </Title>
                             <Text> {props.descripcion} </Text>
                         </Body>
-                        {cantidad ? <TerminarCompra/> : <ItemCount stock="5" initial="1" onAdd={onAdd}/>}
+                        {cantidad ? <TerminarCompra/> : <ItemCount stock="5" initial="1" onAdd={onAdd} time={props.time} />}
                     </Card>
                 </Col>
             </Row>
