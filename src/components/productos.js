@@ -16,7 +16,7 @@ export const productos = [
         id: 1, 
         categoria: "mujer", 
         nombre: "Nike M2K Tekno", 
-        precio: "$18.900,00", 
+        precio: 18900, 
         img: img1, 
         descripcion: texto
     },
@@ -24,7 +24,7 @@ export const productos = [
         id: 2, 
         categoria: "hombre", 
         nombre: "Nike Air Max 200", 
-        precio: "$16.200,00", 
+        precio: 16200, 
         img: img2, 
         descripcion: texto
     },
@@ -32,7 +32,7 @@ export const productos = [
         id: 3, 
         categoria: "mujer", 
         nombre: "Nike Air Max 270", 
-        precio: "$24.900,00", 
+        precio: 24900, 
         img: img3, 
         descripcion: texto
     },
@@ -40,7 +40,7 @@ export const productos = [
         id: 4, 
         categoria: "mujer", 
         nombre: "Nike Air Vapormax Flyknit 3", 
-        precio: "$22.800,00", 
+        precio: 22800, 
         img: img4, 
         descripcion: texto
     },
@@ -48,7 +48,7 @@ export const productos = [
         id: 5, 
         categoria: "mujer", 
         nombre: "Nike Air Max 270 Orange", 
-        precio: "$24.900,00", 
+        precio: 24900, 
         img: img5, 
         descripcion: texto
     },
@@ -56,7 +56,7 @@ export const productos = [
         id: 6, 
         categoria: "hombre", 
         nombre: "Nike Air Max 270 Gray", 
-        precio: "$24.900,00", 
+        precio: 24900, 
         img: img6, 
         descripcion: texto
     },
@@ -64,7 +64,7 @@ export const productos = [
         id: 7, 
         categoria: "mujer", 
         nombre: "Nike Air Max 2090", 
-        precio: "$27.500,00", 
+        precio: 27500, 
         img: img7, 
         descripcion: texto
     },
@@ -72,7 +72,7 @@ export const productos = [
         id: 8, 
         categoria: "hombre", 
         nombre: "Nike Air Force", 
-        precio: "$18.900,00", 
+        precio: 18900, 
         img: img8, 
         descripcion: texto
     },

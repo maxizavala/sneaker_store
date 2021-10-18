@@ -10,7 +10,7 @@ const Item = (props) => {
             <Img src = {props.img} />
             <Body>
                 <Title>{props.titulo}</Title>
-                <Text>{props.precio}</Text>
+                <Text>${props.precio},00</Text>
             </Body>
             <Footer>
                 <Link className="btn btn-info btn-sm" to={"/producto/" + props.id}> Ver Detalle </Link>
