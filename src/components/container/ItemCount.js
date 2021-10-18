@@ -7,7 +7,7 @@ import { useState } from "react"
 
 const {Footer} = Card
 
-const ItemCount = ({stock, initial, onAdd, time}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
 
     const [cantidad, setCantidad] = useState(initial)
 
@@ -45,7 +45,7 @@ const ItemCount = ({stock, initial, onAdd, time}) => {
             <Footer>
                 <Row>
                     <Col className="text-center"> 
-                        { time !== "true" ? <Button className="btn btn-info" disabled> Agregar al Carrito </Button>  : <Button className="btn btn-info" onClick={ agregar }> Agregar al Carrito </Button> }
+                        { !onAdd ? <Button className="btn btn-info" disabled> Agregar al Carrito </Button>  : <Button className="btn btn-info" onClick={ agregar }> Agregar al Carrito </Button> }
                     </Col>
                 </Row>
             </Footer>

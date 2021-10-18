@@ -15,7 +15,9 @@ export const CartProvider = (props) => { // Configuracion de rutas
         if (posicion !== null) { // Existe el producto en carrito
             copiaCart[posicion].cantidad = Number(copiaCart[posicion].cantidad) + Number(item.cantidad)
         } else { // No existe el producto en carrito
-            copiaCart.push(item)
+            if (item.id !== -1) {
+                copiaCart.push(item)
+            }
         }
 
         setCart(copiaCart) 

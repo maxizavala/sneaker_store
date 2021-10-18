@@ -33,7 +33,7 @@ const ItemDetailContainer = () => {
         <Container>
             <Row className="row justify-content-center">
                 <Col className="pt-3" key={art.id}> 
-                    <ItemDetail titulo={art.nombre} img={art.img} precio={art.precio} descripcion={art.descripcion} id={art.id} time="true"/> 
+                    <ItemDetail titulo={art.nombre} img={art.img} precio={art.precio} descripcion={art.descripcion} id={art.id}/> 
                 </Col>
             </Row>
         </Container> 
