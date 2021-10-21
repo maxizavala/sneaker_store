@@ -11,7 +11,7 @@ const Carrito = () => {
     if (cart.length > 0) {
         return(
             <>
-                <h1>Carrito</h1>
+                <h1 className="tith1">Carrito</h1>
                 <CarritoList/>
             </>
         )

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
 .color-nav {
     background-color: #5a2c59;
 }
@@ -20,4 +23,25 @@
 
 .dropdown-menu{
     background-color: #5a2c59;
+}
+
+.tith1{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3em;
+    letter-spacing: 0.8px;
+}
+
+.minicart-cant{
+    background-color: #e26e6c;
+    line-height: 1.2;
+    border-radius: 50%;
+    width: 1.25em;
+    height: 1.25em;
+    display: inline-block;
+    text-align: center;
+    font-size: .8125em;
+    position: relative;
+    top: -.9375em;
+    left: -.9375em;
+    color: #fff;
 }
