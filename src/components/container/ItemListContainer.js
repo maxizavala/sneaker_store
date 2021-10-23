@@ -1,7 +1,7 @@
 import ItemList from './ItemList';
 import {useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
-import { productos } from '../productos';
+import { firestore } from "../../firebase"
 
 
 const ItemListContainer = () => {
@@ -11,20 +11,33 @@ const ItemListContainer = () => {
     let { categoria } = useParams();
 
     useEffect(()=>{
-        const getProducts = new Promise((res)=>{
 
-            let lista
-            if (categoria) {
-                lista = productos.filter(art => art.categoria === categoria);
-            } else {
-                lista = productos
-            }
+        const collection = firestore.collection("productos")
 
-            setTimeout( () => res(lista), 2000)
-        })
-        getProducts.then( (art) => {
-            setArt(art)
-        })
+        let query = categoria === undefined ? collection.get() : collection.where('categoria', '==', categoria).get();
+
+        query
+            .then((resultado) => {
+                
+                const request = resultado.docs
+
+                const productos = []
+
+                request.forEach( item => {
+                    const id = item.id
+                    const info = item.data()
+
+                    const producto = {id, ...info}
+                    productos.push(producto)
+                });
+
+                setArt(productos)
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
     },[categoria])
 
     return(

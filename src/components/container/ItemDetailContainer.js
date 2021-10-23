@@ -4,36 +4,33 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom'
-import { productos } from '../productos';
-
+import { firestore } from "../../firebase"
 
 
 
 const ItemDetailContainer = () => {
 
     let { id } = useParams();
-    const articulo = productos[id-1]
 
     const [art, setArt] = useState({id:-1, nombre: "", img: "", precio:"", descripcion: ""});
 
     useEffect(()=>{
 
-        const getProduct = new Promise((res)=>{
-            setTimeout( () => res(articulo), 2000)
-        })
+        const query = firestore.collection('productos').doc(id).get()
+        query
+            .then( (info) => {
+                setArt({id: info.id, ...info.data()})
+            })
+            .catch( error => console.log(error))
 
-        getProduct.then( (art) => {
-            setArt(art)
-        })
-
-    },[])
+    },[id])
 
     // Return ---------------------------------------
     return(
         <Container>
             <Row className="row justify-content-center">
                 <Col className="pt-3" key={art.id}> 
-                    <ItemDetail titulo={art.nombre} img={art.img} precio={art.precio} descripcion={art.descripcion} id={art.id}/> 
+                    <ItemDetail titulo={art.nombre} img={art.img} precio={art.precio} descripcion={art.descripcion} id={art.id} stock={art.stock}/> 
                 </Col>
             </Row>
         </Container> 

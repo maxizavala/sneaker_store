@@ -37,10 +37,10 @@ const ItemDetail = (props) => {
                 <Col className="pt-3" sm={12} md={6}>
                     <Card>
                         <Body>
-                            <Title> {props.titulo} ~ {props.precio} </Title>
+                            <Title> {props.titulo} ~ ${props.precio},00 </Title>
                             <Text> {props.descripcion} </Text>
                         </Body>
-                        {cantidad ? <TerminarCompra/> : <ItemCount stock="5" initial="1" onAdd={onAdd} time={props.time} />}
+                        {cantidad ? <TerminarCompra/> : <ItemCount stock={props.stock} initial="1" onAdd={onAdd} time={props.time} />}
                     </Card>
                 </Col>
             </Row>
