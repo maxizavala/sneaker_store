@@ -25,7 +25,6 @@ const ItemDetailContainer = () => {
 
     },[id])
 
-    // Return ---------------------------------------
     return(
         <Container>
             <Row className="row justify-content-center">

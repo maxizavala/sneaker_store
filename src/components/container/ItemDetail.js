@@ -1,6 +1,7 @@
 import Card from "react-bootstrap/Card"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+import Spinner from 'react-bootstrap/Spinner'
 import { useContext, useState } from "react"
 import ItemCount from "./ItemCount"
 import TerminarCompra from "./TerminarCompra"
@@ -27,24 +28,34 @@ const ItemDetail = (props) => {
 
 
     return (
-        <>
-            <Row>
-                <Col className="pt-3" sm={12} md={6}>
-                    <Card>
-                        <Img src = {props.img}/>
-                    </Card>
-                </Col>
-                <Col className="pt-3" sm={12} md={6}>
-                    <Card>
-                        <Body>
-                            <Title> {props.titulo} ~ ${props.precio},00 </Title>
-                            <Text> {props.descripcion} </Text>
-                        </Body>
-                        {cantidad ? <TerminarCompra/> : <ItemCount stock={props.stock} initial="1" onAdd={onAdd} time={props.time} />}
-                    </Card>
-                </Col>
-            </Row>
-        </>
+        <Row>
+            <Col className="pt-3" sm={12} md={6}>
+                <Card className="">
+                    { props.img ? <Img src = {props.img}/> : <Spinner className="spin" animation="border" /> }  
+                </Card>
+            </Col>
+            <Col className="pt-3" sm={12} md={6}>
+                <Card>
+                    {
+                        props.titulo ?
+                            ( <Body>
+                                <Title> {props.titulo} ~ ${props.precio},00 </Title>
+                                <Text> {props.descripcion} </Text>
+                            </Body> )
+                        :
+                            <Spinner className="spin" animation="border" />
+                        
+                    }
+                    { 
+                        props.titulo && cantidad ? 
+                            <TerminarCompra/> 
+                        : props.titulo ?
+                            <ItemCount stock={props.stock} initial="1" onAdd={onAdd} /> 
+                        : ""
+                    }
+                </Card>
+            </Col>
+        </Row>
     );
     
 }
