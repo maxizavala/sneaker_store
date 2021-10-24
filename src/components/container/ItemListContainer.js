@@ -6,6 +6,8 @@ import { firestore } from "../../firebase"
 
 const ItemListContainer = () => {
 
+    let [titulo, setTitulo] = useState(null);
+
     let [art, setArt] = useState(null);
 
     let { categoria } = useParams();
@@ -33,6 +35,9 @@ const ItemListContainer = () => {
 
                 setArt(productos)
 
+                categoria !== undefined ? setTitulo(categoria) : setTitulo("Home")
+                
+
             })
             .catch(error => {
                 console.log(error)
@@ -42,6 +47,7 @@ const ItemListContainer = () => {
 
     return(
         <div className="container">
+            <h1 className="tith1"> { titulo } </h1>
             <ItemList productos={ art } />
         </div> 
     )

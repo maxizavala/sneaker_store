@@ -4,7 +4,9 @@ import { CartContext } from "../context/CartContext"
 const CartWidget = () => {
 
     const [cart] = useContext(CartContext)
-    let suma = cart.reduce((total, item) => Number(total) + Number(item.cantidad), 0)
+
+    let suma = 0
+    cart.forEach((item) => suma += Number(item.cantidad));
 
     if (suma > 0) {
         return(
