@@ -1,13 +1,12 @@
-import React from "react"
 import Card from "react-bootstrap/Card"
-import Container from 'react-bootstrap/Container'
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import TrashWidget from "../TrashWidget";
-import Total from "./Total";
-
-import { useContext } from "react";
 import { CartContext } from "../../context/CartContext"
+import Col from "react-bootstrap/Col";
+import Container from 'react-bootstrap/Container'
+import Formulario from "./Formulario";
+import React from "react"
+import Row from "react-bootstrap/Row";
+import TrashWidget from "../TrashWidget";
+import { useContext } from "react";
 
 const {Body, Img, Text, Title} = Card
 
@@ -50,7 +49,7 @@ const CarritoList = () => {
                 }) }
                 <Row className="row justify-content-center">
                     <Col sm={8} className="pt-3 text-center">
-                        <Total total={total}/>
+                        <Formulario total={total}/>
                     </Col>
                 </Row>
             </Container>

@@ -48,7 +48,7 @@ export const CartProvider = (props) => { // Configuracion de rutas
     }
 
 
-    const clear = () => {
+    const clear = () => { 
         setCart([]);
     }
 	
