@@ -14,6 +14,7 @@ const Formulario = (props) => {
 
     const [cart, setCart, removeItem, clear] = useContext(CartContext)
     const {Group, Label, Control} = Form
+    const {Header, Title, Body, Footer} = Modal
 
     const [show, setShow] = useState(false);
     const [datos, setDatos] = useState(false);
@@ -64,10 +65,10 @@ const Formulario = (props) => {
             
 
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Completá tus datos:</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
+                <Header closeButton>
+                    <Title>Completá tus datos:</Title>
+                </Header>
+                <Body>
 
                     <Form>
                         <Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -84,12 +85,12 @@ const Formulario = (props) => {
                         </Group>
                     </Form>
                     
-                </Modal.Body>
-                <Modal.Footer>
+                </Body>
+                <Footer>
                     <Button variant="primary" onClick={ nuevaOrden }>
                         Enviar
                     </Button>
-                </Modal.Footer>
+                </Footer>
             </Modal>
         </>
     )

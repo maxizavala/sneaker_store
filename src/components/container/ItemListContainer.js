@@ -1,8 +1,9 @@
-import ItemList from './ItemList';
-import {useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
-import { firestore } from "../../firebase"
+import {useEffect, useState} from 'react';
 
+import Container from 'react-bootstrap/Container'
+import ItemList from './ItemList';
+import { firestore } from "../../firebase"
+import { useParams } from 'react-router-dom'
 
 const ItemListContainer = () => {
 
@@ -46,10 +47,10 @@ const ItemListContainer = () => {
     },[categoria])
 
     return(
-        <div className="container">
+        <Container>
             <h1 className="tith1"> { titulo } </h1>
             <ItemList productos={ art } />
-        </div> 
+        </Container> 
     )
     
 }

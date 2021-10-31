@@ -3,7 +3,6 @@ import { CartContext } from "../../context/CartContext"
 import Col from "react-bootstrap/Col";
 import Container from 'react-bootstrap/Container'
 import Formulario from "./Formulario";
-import React from "react"
 import Row from "react-bootstrap/Row";
 import TrashWidget from "../TrashWidget";
 import { useContext } from "react";
