@@ -6,8 +6,7 @@ import { CartContext } from "../../context/CartContext"
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
 import { firestore } from "../../firebase"
-
-const {Title, Body} = Card
+import { useMensaje } from "../../context/MensajeContext"
 
 const Formulario = (props) => {
 
@@ -18,7 +17,8 @@ const Formulario = (props) => {
 
     const [show, setShow] = useState(false);
     const [datos, setDatos] = useState(false);
-    const [validated, setValidated] = useState(false);
+
+    const {mostrarMensaje, setMensajeTitulo, setMensajeText, setMensajeColor} = useMensaje()
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -36,9 +36,15 @@ const Formulario = (props) => {
         const query = nuevaOrden.add(orden)
 
         query.then(result => {
-            console.log(result.id)
+            setMensajeColor("success")
+            setMensajeTitulo("Gracias por tu compra!")
+            setMensajeText("En breve te enviaremos por email la confirmacion de tu compra. Tu número de orden es '" + result.id + "'")
+            mostrarMensaje()
         }).catch( error => 
-            console.log("Error")
+            setMensajeColor("danger"),
+            setMensajeTitulo("Gracias por tu mensaje!"),
+            setMensajeText("En breve nos comunicaremos con vos para responder todas tus consultas."),
+            mostrarMensaje()
         ).finally(() =>
             handleClose(),
             clear()
@@ -57,10 +63,10 @@ const Formulario = (props) => {
     return(
         <>
             <Card>
-                <Body> 
-                <Title> TOTAL: ${props.total},00 </Title>
+                <Card.Body> 
+                <Card.Title> TOTAL: ${props.total},00 </Card.Title>
                     <Button variant="info" onClick={handleShow}> Finalizar Compra </Button> 
-                </Body>
+                </Card.Body>
             </Card>
             
 
