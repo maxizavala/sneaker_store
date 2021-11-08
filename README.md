@@ -7,8 +7,8 @@
 
 Este proyecto ha sido desarrollado como resultado del curso de ReactJS de Coderhouse (Agosto 2021).
 Se trata de un ecommerce de zapatillas tipo sneakers con secciones por categoria, contacto y carrito de compras.
-El sitio se encuentra actualmente deplyado en el siguiente link: 
-https://sneaker-store-ar.netlify.app/cart
+El sitio se encuentra actualmente deployado en el siguiente link: 
+https://sneaker-store-ar.netlify.app/
 
 
 ## Librerías utilizadas:
