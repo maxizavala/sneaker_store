@@ -1,12 +1,11 @@
 import Card from "react-bootstrap/Card"
-import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import Spinner from 'react-bootstrap/Spinner'
-import { useContext, useState } from "react"
 import ItemCount from "./ItemCount"
+import Row from "react-bootstrap/Row"
+import Spinner from 'react-bootstrap/Spinner'
 import TerminarCompra from "./TerminarCompra"
-
-import { CartContext } from "../../context/CartContext"
+import { useCarrito } from "../../context/CartContext"
+import { useState } from "react"
 
 const {Body, Img, Text, Title } = Card
 
@@ -15,8 +14,7 @@ const ItemDetail = (props) => {
 
     const [cantidad, setCantidad] = useState(null)
 
-
-    const [cart, setCart, removeItem, clear, addItem, isInCart] = useContext(CartContext)
+    const {addItem} = useCarrito()
 
 
     const onAdd = (cantidad) => {

@@ -1,20 +1,23 @@
-import React, { createContext, useState } from "react"
+import { createContext, useContext, useState } from 'react'
 
-export const CartContext = createContext() // Contexto que utilizamos en las paginas
+const context = createContext()
 
-export const CartProvider = (props) => { // Configuracion de rutas
+const {Provider} = context
+
+export const useCarrito = () => useContext(context)
+
+const CartProvider = ({children}) => {
 
 	const [cart, setCart] = useState([])
-
 
 	const addItem = (item) => {
 
         let copiaCart = [...cart]
         let posicion = isInCart(item.id)
 
-        if (posicion !== null) { // Existe el producto en carrito
+        if (posicion !== null) {
             copiaCart[posicion].cantidad = Number(copiaCart[posicion].cantidad) + Number(item.cantidad)
-        } else { // No existe el producto en carrito
+        } else {
             if (item.id !== -1) {
                 copiaCart.push(item)
             }
@@ -52,13 +55,21 @@ export const CartProvider = (props) => { // Configuracion de rutas
         setCart([]);
     }
 	
+    const contextValue = {
+        cart, 
+        setCart, 
+        removeItem, 
+        clear, 
+        addItem, 
+        isInCart
+    }
 
 	return (
-		<>
-		    <CartContext.Provider value={[cart, setCart, removeItem, clear, addItem, isInCart]}> 
-				{props.children}
-			</CartContext.Provider>
-		</>
-	)
+        <Provider value={contextValue}>
+            {children}
+        </Provider>
+    )
 
 }
+
+export default CartProvider

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 import Carrito from "./components/container/Carrito"
-import { CartProvider } from "./context/CartContext"
+import CartProvider from "./context/CartContext"
 import Contacto from "./components/container/Contacto"
 import { Container } from "react-bootstrap"
 import ItemDetailContainer from "./components/container/ItemDetailContainer"

@@ -19,6 +19,9 @@ const MensajeProvider = ({children}) => {
 
     const ocultarMensaje = () => {
         setMensajeAlert(false)
+        setMensajeTitulo("Espera..")
+        setMensajeText("Estamos procesando tu soicitud.")
+        setMensajeColor("warning")
     }
 
     const contextValue = {

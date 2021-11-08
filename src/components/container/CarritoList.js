@@ -1,18 +1,17 @@
 import Card from "react-bootstrap/Card"
-import { CartContext } from "../../context/CartContext"
 import Col from "react-bootstrap/Col";
 import Container from 'react-bootstrap/Container'
 import Formulario from "./Formulario";
 import Row from "react-bootstrap/Row";
 import TrashWidget from "../TrashWidget";
-import { useContext } from "react";
+import { useCarrito } from "../../context/CartContext"
 
 const {Body, Img, Text, Title} = Card
 
 
 const CarritoList = () => {
 
-    const [cart, setCart, removeItem] = useContext(CartContext)
+    const {cart, removeItem} = useCarrito()
 
     let total = 0
 

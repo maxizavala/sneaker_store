@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext"
+import { useCarrito } from "../context/CartContext"
 
 const CartWidget = () => {
 
-    const [cart] = useContext(CartContext)
+    const {cart} = useCarrito()
 
     let suma = 0
     cart.forEach((item) => suma += Number(item.cantidad));

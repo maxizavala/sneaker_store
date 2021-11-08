@@ -1,12 +1,11 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext"
 import CarritoList from "./CarritoList";
 import { Jumbotron } from 'react-bootstrap';
 import { Link } from "react-router-dom"
+import { useCarrito } from "../../context/CartContext"
 
 const Carrito = () => {
 
-    const [cart] = useContext(CartContext)
+    const {cart} = useCarrito()
 
     if (cart.length > 0) {
         return(
