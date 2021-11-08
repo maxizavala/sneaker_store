@@ -1,8 +1,14 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8a14d308-8b41-4fda-929c-1c5c90671459/deploy-status)](https://app.netlify.com/sites/sneaker-store-ar/deploys)
+
 # PROYECTO DE ECOMMERCE: Sneaker Store
+
 
 ![image](./Sneaker.gif)
 
-Este proyecto esta siendo desarrollado como resultado del curso de ReactJS de Coderhouse (Agosto 2021) 
+Este proyecto ha sido desarrollado como resultado del curso de ReactJS de Coderhouse (Agosto 2021).
+Se trata de un ecommerce de zapatillas tipo sneakers con secciones por categoria, contacto y carrito de compras.
+El sitio se encuentra actualmente deplyado en el siguiente link: 
+https://sneaker-store-ar.netlify.app/cart
 
 
 ## Librerías utilizadas:
@@ -10,4 +16,22 @@ Este proyecto esta siendo desarrollado como resultado del curso de ReactJS de Co
 - React-Bootstrap
 
 - React-Router-Dom
+
+- Firestore
+
+## Requisitos:
+
+- Node.JS
+
+- Una cuenta en Firestore
+
+## Instalación:
+
+1- Realizar un Fork del proyecto
+
+2- Clonar el proyecto localmente
+
+3- Desde teminal y ubicado en la carpeta del proyecto: `npm install`
+
+4- Correr el proyecto: `npm start`
 
