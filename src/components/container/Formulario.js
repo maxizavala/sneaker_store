@@ -42,20 +42,16 @@ const Formulario = (props) => {
             setMensajeColor("success")
             setMensajeTitulo("Gracias por tu compra!")
             setMensajeText("En breve te enviaremos por email la confirmacion de tu compra. Tu número de orden es '" + result.id + "'")
-            mostrarMensaje()
             
         }).catch(error => 
             setMensajeColor("danger"),
             setMensajeTitulo("Sucedió algo que no esperabamos :("),
             setMensajeText("Por favor volvé a intentar en unos minutos."),
-            setTimeout(
-                function(){                          
-                    mostrarMensaje()  
-            }, 2000)
-        
+            
         ).finally(() =>
             handleClose(),
-            clear()
+            setTimeout(mostrarMensaje, 2000),
+            setTimeout(clear, 2000)
         )
         
     }

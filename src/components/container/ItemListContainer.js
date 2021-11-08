@@ -8,9 +8,7 @@ import { useParams } from 'react-router-dom'
 const ItemListContainer = () => {
 
     let [titulo, setTitulo] = useState(null);
-
     let [art, setArt] = useState(null);
-
     let { categoria } = useParams();
 
     useEffect(()=>{
