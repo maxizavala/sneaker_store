@@ -13,15 +13,17 @@ https://sneaker-store-ar.netlify.app/
 
 ## Librerías utilizadas:
 
-- React-Bootstrap
+- React-Bootstrap 4.6.0
 
 - React-Router-Dom
+
+- Firebase 7.2.3
 
 ## Requisitos:
 
 - Node.JS
 
-- Una cuenta en Firestore
+- Una cuenta en Firebase
 
 ## Instalación:
 
