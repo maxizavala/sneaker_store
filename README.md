@@ -17,8 +17,6 @@ https://sneaker-store-ar.netlify.app/
 
 - React-Router-Dom
 
-- Firestore
-
 ## Requisitos:
 
 - Node.JS
